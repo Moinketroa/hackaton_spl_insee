@@ -5,7 +5,7 @@
 #include <cstdio>
 
 int main(int argc, char** argv){
-	int nline = 10000;
+	int nline = 5000;
 	std::ifstream in;
 	in.open( argv[1], std::ifstream::in );
 	std::ofstream out;
