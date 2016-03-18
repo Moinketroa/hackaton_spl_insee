@@ -1,4 +1,5 @@
 CREATE TABLE commercial (
+    c_id INT AUTO INCREMENT NOT NULL,
     type VARCHAR(10) CHARACTER SET utf8,
     nom VARCHAR(37) CHARACTER SET utf8,
     x NUMERIC(17, 16),

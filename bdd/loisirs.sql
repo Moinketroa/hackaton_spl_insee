@@ -1,4 +1,5 @@
 CREATE TABLE loisirs (
+    l_id INT AUTO INCREMENT NOT NULL,
     type VARCHAR(10) CHARACTER SET utf8,
     nom VARCHAR(47) CHARACTER SET utf8,
     x NUMERIC(17, 16),

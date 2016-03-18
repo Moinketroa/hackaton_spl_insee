@@ -1,4 +1,5 @@
 CREATE TABLE tramway (
+    t_id INT AUTO INCREMENT NOT NULL,
     type VARCHAR(4) CHARACTER SET utf8,
     nom VARCHAR(23) CHARACTER SET utf8,
     x NUMERIC(16, 15),

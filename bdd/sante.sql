@@ -1,4 +1,5 @@
 CREATE TABLE sante (
+    sa_id INT AUTO INCREMENT NOT NULL,
     type VARCHAR(8) CHARACTER SET utf8,
     nom VARCHAR(53) CHARACTER SET utf8,
     x NUMERIC(16, 15),
