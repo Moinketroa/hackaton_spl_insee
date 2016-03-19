@@ -1,4 +1,5 @@
 CREATE TABLE transport (
+    t_id INT AUTO INCREMENT NOT NULL,
     type VARCHAR(4) CHARACTER SET utf8,
     nom VARCHAR(66) CHARACTER SET utf8,
     x NUMERIC(17, 16),
