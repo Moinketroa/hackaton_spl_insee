@@ -36,7 +36,10 @@ Route::get('/categorie', 'HomeController@categorie');
 Route::get('/categorie/{cat}', 'HomeController@form');
 Route::get('/map', 'HomeController@map');
 
+Route::post('/recommande', 'HomeController@recommande');
 
+
+Route::get('/autocomplete/univ', 'HomeController@autouniv');
 
 Route::group(['middleware' => ['web']], function () {
     //
