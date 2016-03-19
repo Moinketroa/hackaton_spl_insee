@@ -45,7 +45,7 @@ class HomeController extends Controller
     }
     
     
-    public function form()
+    public function form($cat)
     {
         $sport=Sport::all();
         $uniques = array();
@@ -53,9 +53,12 @@ class HomeController extends Controller
             $uniques[$c->type] = $c;
         }
         
+        if($cat == "etudiant") {
+            return view('form',array('sport'=>$uniques));
+        } else if ($cat == "retraite") {
+            return view('form_r');
+        }
         
-        
-        return view('form',array('sport'=>$uniques));
     }
     
     public function map()
@@ -177,7 +180,50 @@ class HomeController extends Controller
         
     }
     
-    
+    public function recommande_r(){
+ 
+        $option=Input::get();
+        
+        $result=array();
+        
+        $place=array();
+        
+        $priorite=$option['prio'];
+        $mais=$option['house'];
+ 
+         if ($mais == 'true'){
+             if ($priorite == 'com'){
+                    $c=Commercial::all();
+                    $r=Sante::where('type','=','RETRAITE')->get();
+                    
+                    $result=Functions::nearest_array($r->toArray(), $c->toArray());
+                    
+                    $avg = $result[0];
+             } else {
+                    $h=Sante::where('type','=','HOPITAL')->get();
+                    $r=Sante::where('type','=','RETRAITE')->get();
+                    
+                    $result=Functions::nearest_array($r->toArray(), $h->toArray());
+                    
+                    $avg = $result[0];
+             }  
+         } else {
+                $c=Commercial::all();
+                $h=Sante::where('type','LIKE','HOPITAL')->get();
+                
+                $result=Functions::nearest_array($c->toArray(), $h->toArray());
+                
+                $avg = Functions::average_point($result);
+         }  
+        
+        
+        
+        Session::put('recommandation',json_encode(array('center'=>$avg,'places'=>$result)));
+        
+        //echo json_encode(Session::get('recommandation'));
+        return view('map');
+        
+    }
     
     
     

@@ -168,13 +168,13 @@
             
             
             <div class="col-sm-6 col-md-4 info-footer">       
-                <h4>Information utililes</h4>
+                <h4>Informations utiles</h4>
             </div>
             <div class="col-sm-6 col-md-4 info-footer">       
-                <h4>Information utililes</h4>
+                <h4>Informations utiles</h4>
             </div>
             <div class="col-sm-6 col-md-4 info-footer">       
-                <h4>Information utililes</h4>
+                <h4>Informations utiles</h4>
                 <ul>
                     <li>
                         <a href="#">Mes recherches</a>

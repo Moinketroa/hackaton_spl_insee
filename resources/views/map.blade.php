@@ -16,14 +16,17 @@
 		
 	
     function initMap() {
-       var defaut = baseUrl+'/assets/image/Point_GN';
-		var imageundefined =  imageVELO= baseUrl+'/assets/image/Point_Cible.png';
+       var defaut = imageRETRAITE = baseUrl+'/assets/image/Point_GN.png';
+		var imageundefined = imageCommercial = imageHOPITAL = baseUrl+'/assets/image/Point_Cible.png';
 		var imagePiscine, imageFootball, imageTennis;
-		imagePiscine = imageFootball = imageTennis = imageAthlétisme =imageSTAN=imageSki=imageCINEMA= baseUrl+'/assets/image/Point_Loisir.png';	  
+		imagePiscine = imageFootball = imageTennis = imageAthlétisme = imageCLUB= imageSki = baseUrl+'/assets/image/Point_Loisir.png';	  
 		var imageSUPERIEUR =baseUrl+'/assets/image/Point_Ecole.png';
 		var imageResidenceU =  baseUrl+'/assets/image/Point_ResidU.png';
-		var imageRESTAURANT =imageFASTFOOD = imageBAR =  baseUrl+'/assets/image/Point_Resto.png';
-	
+		var imageRESTAURANT = imageFASTFOOD =   baseUrl+'/assets/image/Point_Resto.png';
+	    var imageBAR = baseUrl+'/assests/image/Point_Bar.png';
+        var imageVELO = baseUrl+'/assets/image/Point_Velo.png';
+        var imageCINEMA = baseUrl+'/assets/image/Point_Cinema.png';
+        var imageSTAN = baseUrl+'/assets/image/Point_Stan.png';
 	
 		
 		var parse_brut = JSON.parse(brut);

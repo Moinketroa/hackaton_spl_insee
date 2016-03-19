@@ -41,6 +41,7 @@ Route::get('/map', 'HomeController@map');
 Route::get('/place', 'HomeController@getplace');
 
 Route::post('/recommande', 'HomeController@recommande');
+Route::post('/recommande_r', 'HomeController@recommande_r');
 
 
 Route::get('/autocomplete/univ', 'HomeController@autouniv');
