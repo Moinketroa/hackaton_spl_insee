@@ -36,6 +36,12 @@ $(document).ready(function() {
 
     });
     
+    
+    
+    
+    $( "#schoolinput" ).autocomplete({
+      source: baseUrl+'/autocomplete/univ'
+    });
 
 
 

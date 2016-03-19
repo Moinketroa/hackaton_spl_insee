@@ -516,16 +516,16 @@ footer{
 
 
 .fs-fields .fs-radio-custom label.radio-bike::after {
-    background-image: url(../image/resto.png);
+    background-image: url(../image/bike.png);
 }
 .fs-fields .fs-radio-custom label.radio-walk::after {
-    background-image: url(../image/resto.png);
+    background-image: url(../image/foot.png);
 }
 .fs-fields .fs-radio-custom label.radio-tram::after {
-    background-image: url(../image/resto.png);
+    background-image: url(../image/transport.png);
 }
 .fs-fields .fs-radio-custom label.radio-car::after {
-    background-image: url(../image/resto.png);
+    background-image: url(../image/car.png);
 }
 
 
@@ -579,4 +579,17 @@ footer{
 
 div.cs-skin-boxes > span{
     background-size: cover !important;
+}
+
+.ui-widget-content {
+    border: none !important;
+   
+}
+.ui-state-focus{
+    background: none !important;
+    border:  none !important;
+    margin: 0 !important;
+}
+.ui-menu-item:hover{
+    background: rgba(0, 0, 0, 0.1) !important;
 }

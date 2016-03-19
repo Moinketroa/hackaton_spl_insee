@@ -23,6 +23,7 @@
     <!-- Custom css -->
     <link rel="stylesheet" href="{{Request::root()}}/assets/css/style.css">
     
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     
     
     <link rel="stylesheet" type="text/css" href="{{Request::root()}}/assets/css/demo.css" />
@@ -189,6 +190,7 @@
         </footer>
     <!-- JQuery minified Javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     
     <!-- Bootstrap minified Javascript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -202,6 +204,8 @@
     
     
     <script>
+        
+            var baseUrl="{{Request::root()}}";
 			(function() {
 				var formWrap = document.getElementById( 'fs-form-wrap' );
 
