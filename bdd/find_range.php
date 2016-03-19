@@ -10,8 +10,7 @@ function find_range($array, $pos, $range){
 		$val = sqrt(pow($row['x'] - $pos['x'], 2) + pow($row['y'] - $pos['y'], 2));
 
 		if ($val <= $range){
-			$temp = array('x' => $row['x'], 'y' => $row['y']);
-			$result[$i] = $temp;
+			$result[$i] = $row;
 			$i++;
 		} 
 	}
