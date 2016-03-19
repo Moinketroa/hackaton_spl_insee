@@ -1,28 +1,42 @@
-@extends('layouts.app')
-
-@section('content')
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #map {
+        width: 800px;
+        height: 600px;
+      }
+    </style>
+	<script src="jquery-2.2.2.min.js"></script>
+  </head>
+  <body>
     <div id="map"></div>
-@endsection
-
-@section('extra-js')
-    
     <script>
         
+       
         var brut;
         
-        
-        
-        
-		
-	
+        $.ajax({
+            url: url,
+            success: function(data){
+                brut=data;
+                initMap();
+                
+                
+            },
+            dataType: dataType
+        });
+     
+    
+    
     function initMap() {
-       var defaut = baseUrl+'/assets/image/Point_GN';
-		var imageundefined =  imageVELO= baseUrl+'/assets/image/Point_Cible.png';
+        var defaut = baseUrl+'/assets/image/Point_GN';
+		var imageundefined = baseUrl+'/assets/image/Point_Cible.png';
 		var imagePiscine, imageFootball, imageTennis;
-		imagePiscine = imageFootball = imageTennis = imageAthlétisme =imageSTAN=imageSki=imageCINEMA= baseUrl+'/assets/image/Point_Loisir.png';	  
-		var imageSUPERIEUR =baseUrl+'/assets/image/Point_Ecole.png';
+		imagePiscine = imageFootball = imageTennis =  baseUrl+'/assets/image/Point_Loisir.png';	  
+		var imageSUPERIEUR =  baseUrl+'/assets/image/Point_Ecole.png';
 		var imageResidenceU =  baseUrl+'/assets/image/Point_ResidU.png';
-		var imageRESTAURANT =imageFASTFOOD = imageBAR =  baseUrl+'/assets/image/Point_Resto.png';
+		var imageRESTAURANT =  baseUrl+'/assets/image/Point_Resto.png';
 	
 	
 		
@@ -31,10 +45,11 @@
 		
 		places[0] = parse_brut.center;
 		
-		for ( plop in parse_brut.places){
-			places[plop +1] = parse_brut.places[plop];
+		for ( fuck in parse_brut.places){
+			places[fuck +1] = parse_brut.places[fuck];
 		}
-	
+		
+		console.log(places);
 		
 		var data_trambus = '{"positions":[ {"lat":48.678100, "lng":6.189100}, {"lat":48.678200, "lng":6.189100}, {"lat":48.678200, "lng":6.189400} ]}';
 		var trambus = JSON.parse(data_trambus);
@@ -46,7 +61,7 @@
         var mapDiv = document.getElementById('map');
 		
         var map = new google.maps.Map(mapDiv, {
-          center:{lat: parseFloat(places[0].y), lng: parseFloat(places[0].x)},
+          center: {lat: 48.6880756, lng: 6.184176},
           zoom: 14
         });
 		
@@ -73,7 +88,7 @@
 			var image = "image";
 			
 			console.log(image.concat(places[place].type));
-			if (places[place].z < 0.0001) {
+			if (places[place].z < 0.01) {
 				new google.maps.Marker({
 					title: places[place].nom,
 					position: center,
@@ -89,25 +104,12 @@
 					fillOpacity: 0.1,
 					map: map,
 					center: center,
-					radius: Math.sqrt(places[place].z) * 8000
+					radius: Math.sqrt(places[place].z) * 100
 				});
 		}
 	}
-    
-    
-    $.ajax({
-            url: baseUrl+'/place',
-            success: function(data){
-                brut=data;
-                console.log(data)
-                initMap();
-                
-                
-            }
-        });
-        
-        
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js"
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
         async defer></script>
-@endsection
+  </body>
+</html>

@@ -29,7 +29,6 @@ class Functions
     
     public static function average_point($array){
         
-        var_dump($array);
         
         $arrayx = array();
         $arrayy = array();
@@ -60,7 +59,7 @@ class Functions
             $i++;
         }
         $radius = array_sum($arraydist)/count($arraydist);
-        $arrayres = array('x' => $pointx, 'y' => $pointy, 'r' => $radius);
+        $arrayres = array('x' => $pointx, 'y' => $pointy, 'z' => $radius);
         return $arrayres;
     }
     

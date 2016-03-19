@@ -207,25 +207,27 @@
         
             var baseUrl="{{Request::root()}}";
 			(function() {
+                
 				var formWrap = document.getElementById( 'fs-form-wrap' );
+                    if(formWrap){
+                    [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {	
+        
+                        new SelectFx( el, {
+                            stickyPlaceholder: false,
+                            onChange: function(val){
+                                console.log(val);
+                            
+                                el.parentNode.querySelector('.cs-placeholder').style.background = val;
+                            }
+                        });
+                    } );
 
-				[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {	
-    
-					new SelectFx( el, {
-						stickyPlaceholder: false,
-						onChange: function(val){
-                            console.log(val);
-                           
-							el.parentNode.querySelector('.cs-placeholder').style.background = val;
-						}
-					});
-				} );
-
-				new FForm( formWrap, {
-					onReview : function() {
-						classie.add( document.body, 'overview' ); // for demo purposes only
-					}
-				} );
+                    new FForm( formWrap, {
+                        onReview : function() {
+                            classie.add( document.body, 'overview' ); // for demo purposes only
+                        }
+                    } );
+                    }
 			})();
             
             
@@ -240,5 +242,7 @@
             
             
 		</script>
+        
+        @yield('extra-js')
 </body>
 </html>

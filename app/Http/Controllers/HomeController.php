@@ -65,7 +65,7 @@ class HomeController extends Controller
     
     
     public function recommande(){
-        var_dump(Input::get());
+ 
         $option=Input::get();
         $result=array();
         
@@ -85,8 +85,7 @@ class HomeController extends Controller
         
         $result[]=$school->toArray();
         
-        var_dump($crous);
-        
+
         
             
         switch ($trans) {
@@ -145,15 +144,21 @@ class HomeController extends Controller
         
         $avg=Functions::average_point($result);
         
+        $t=Loisir::whereRaw('x BETWEEN '.($avg['x']-0.1).' AND '.($avg['x']+0.1).' AND '.'y BETWEEN '.($avg['y']-0.1).' AND '.($avg['y']+0.1))->get();
+        $result[]=$t;
+        
+        
+        
+        
+        
+        
         if($crous=='true'){    
             $t=Logement::where('type','=','ResidenceU')->get();
-            $result[]=Functions::nearest($t->toArray(),$avg);
+            $avg=Functions::nearest($t->toArray(),$avg);
         }
         
-        var_dump($avg);
         
-        
-        var_dump(json_encode(array('center'=>$avg,'places'=>$result)));
+        //echo json_encode(array('center'=>$avg,'places'=>$result));
         
         
         
@@ -165,7 +170,10 @@ class HomeController extends Controller
         
         
         
-        //Session::put('recommandation',$result);
+        Session::put('recommandation',json_encode(array('center'=>$avg,'places'=>$result)));
+        
+        //echo json_encode(Session::get('recommandation'));
+        return view('map');
         
     }
     
@@ -188,6 +196,17 @@ class HomeController extends Controller
             $toJSON[$num]['label'] = $val->nom;
         }
         echo json_encode($toJSON);
+        
+        
+        
+    }
+    
+    
+    
+      public function getplace()
+    {
+       
+        echo Session::get('recommandation');
         
         
         

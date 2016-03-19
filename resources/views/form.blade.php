@@ -95,6 +95,7 @@
             
             
         </ol><!-- /fs-fields -->
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <button class="fs-submit" type="submit">Valider</button>
     </form><!-- /fs-form -->
 </div><!-- /fs-form-wrap -->

@@ -31,18 +31,19 @@ Route::get('/', function () {
 */
 
 
-Route::get('/', 'HomeController@index');
+
+
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/', 'HomeController@index');
 Route::get('/categorie', 'HomeController@categorie');
 Route::get('/categorie/{cat}', 'HomeController@form');
 Route::get('/map', 'HomeController@map');
+Route::get('/place', 'HomeController@getplace');
 
 Route::post('/recommande', 'HomeController@recommande');
 
 
 Route::get('/autocomplete/univ', 'HomeController@autouniv');
-
-Route::group(['middleware' => ['web']], function () {
-    //
 });
 
 Route::group(['middleware' => 'web'], function () {
